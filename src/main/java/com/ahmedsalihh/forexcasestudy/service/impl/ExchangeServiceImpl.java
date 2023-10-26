@@ -1,6 +1,7 @@
 package com.ahmedsalihh.forexcasestudy.service.impl;
 
 import com.ahmedsalihh.forexcasestudy.client.DummyExchangeClient;
+import com.ahmedsalihh.forexcasestudy.model.ConversionResponse;
 import com.ahmedsalihh.forexcasestudy.model.ExchangeRateResponse;
 import com.ahmedsalihh.forexcasestudy.service.ExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,5 +20,10 @@ public class ExchangeServiceImpl implements ExchangeService {
     @Override
     public ExchangeRateResponse getExchangeRate(String from, String to) {
         return client.getExchangeRate(from, to);
+    }
+
+    @Override
+    public ConversionResponse convert(String from, String to, String amount) {
+        return client.convert(from,to,amount);
     }
 }

@@ -1,7 +1,10 @@
 package com.ahmedsalihh.forexcasestudy.client;
 
+import com.ahmedsalihh.forexcasestudy.model.ConversionResponse;
 import com.ahmedsalihh.forexcasestudy.model.ExchangeRateResponse;
 import org.springframework.context.annotation.Configuration;
+
+import java.util.Date;
 
 @Configuration
 public class DummyExchangeClient {
@@ -11,5 +14,13 @@ public class DummyExchangeClient {
         response.setFrom(from);
         response.setTo(to);
         return response;
+    }
+
+    public ConversionResponse convert(String from, String to, String amount) {
+        ConversionResponse conversionResponse = new ConversionResponse();
+        conversionResponse.setAmount(123);
+        conversionResponse.setTransactionDate(new Date());
+
+        return conversionResponse;
     }
 }
