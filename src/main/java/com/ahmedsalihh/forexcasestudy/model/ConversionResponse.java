@@ -6,6 +6,9 @@ import java.util.Date;
 
 @Data
 public class ConversionResponse {
-    private float amount;
+    private double amount;
+    private String from;
+    private String to;
+    private double totalAmount;
     private Date transactionDate;
 }

@@ -16,9 +16,12 @@ public class DummyExchangeClient {
         return response;
     }
 
-    public ConversionResponse convert(String from, String to, String amount) {
+    public ConversionResponse convert(String from, String to, double amount) {
         ConversionResponse conversionResponse = new ConversionResponse();
-        conversionResponse.setAmount(123);
+        conversionResponse.setAmount(amount);
+        conversionResponse.setFrom(from);
+        conversionResponse.setTo(to);
+        conversionResponse.setTotalAmount(100);
         conversionResponse.setTransactionDate(new Date());
 
         return conversionResponse;
