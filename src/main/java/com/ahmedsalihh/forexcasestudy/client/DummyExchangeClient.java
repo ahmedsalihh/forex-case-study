@@ -4,6 +4,7 @@ import com.ahmedsalihh.forexcasestudy.model.ConversionApiResponse;
 import com.ahmedsalihh.forexcasestudy.model.ExchangeRateResponse;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Configuration
@@ -22,7 +23,7 @@ public class DummyExchangeClient {
         conversionApiResponse.setFrom(from);
         conversionApiResponse.setTo(to);
         conversionApiResponse.setTotalAmount(100);
-        conversionApiResponse.setTransactionDate(new Date());
+        conversionApiResponse.setTransactionDate(LocalDate.now());
 
         return conversionApiResponse;
     }

@@ -4,14 +4,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @Table(name = "conversion")
 public class Conversion {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long transactionId;
 
     @JsonIgnore
@@ -19,5 +19,5 @@ public class Conversion {
     private String toCurrency;
     private double amount;
     private double totalCalculatedAmount;
-    private Date transactionDate;
+    private LocalDate transactionDate;
 }

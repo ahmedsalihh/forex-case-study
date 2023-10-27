@@ -2,7 +2,7 @@ package com.ahmedsalihh.forexcasestudy.model;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 public class ConversionApiResponse {
@@ -10,5 +10,5 @@ public class ConversionApiResponse {
     private String from;
     private String to;
     private double totalAmount;
-    private Date transactionDate;
+    private LocalDate transactionDate;
 }

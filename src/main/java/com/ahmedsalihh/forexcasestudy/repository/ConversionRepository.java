@@ -3,24 +3,18 @@ package com.ahmedsalihh.forexcasestudy.repository;
 import com.ahmedsalihh.forexcasestudy.model.Conversion;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Repository
 public interface ConversionRepository extends PagingAndSortingRepository<Conversion, Long>, CrudRepository<Conversion, Long> {
 
     Page<Conversion> findByTransactionId(Long transactionId, Pageable paging);
 
-    Page<Conversion> findByTransactionDateGreaterThan(Date date, Pageable paging);
+    Page<Conversion> findByTransactionDate(LocalDate date, Pageable paging);
 
-    @Query(value = "SELECT * FROM Exchange where transactionId = ?1 and transaction_date >= ?2",
-            countQuery = "SELECT count(*) FROM Exchange  where transactionId = ?1 and transaction_date >= ?2",
-            nativeQuery = true)
-    Page<Conversion> findExchangeListByTransactionIdAndTransactionDate(Long transactionId,
-                                                                       Date transactionDate,
-                                                                       Pageable paging);
+    Page<Conversion> findConversionsByTransactionIdAndTransactionDate(Long transactionId, LocalDate transactionDate, Pageable paging);
 }
