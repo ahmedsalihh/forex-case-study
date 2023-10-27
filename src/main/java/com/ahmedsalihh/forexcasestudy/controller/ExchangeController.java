@@ -24,7 +24,7 @@ public class ExchangeController {
     }
 
     @GetMapping("/convert/{from}/to/{to}/{amount}")
-    public ResponseEntity<Conversion> convert(@PathVariable("from") String from, @PathVariable("to") String to, @PathVariable("amount") double amount) {
+    public ResponseEntity<ConversionResponse> convert(@PathVariable("from") String from, @PathVariable("to") String to, @PathVariable("amount") double amount) {
         return ResponseEntity.ok(exchangeService.convert(from, to, amount));
     }
 }

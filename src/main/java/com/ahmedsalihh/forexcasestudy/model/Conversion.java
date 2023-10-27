@@ -1,5 +1,6 @@
 package com.ahmedsalihh.forexcasestudy.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -11,7 +12,9 @@ import java.util.Date;
 public class Conversion {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private long id;
+    private long transactionId;
+
+    @JsonIgnore
     private String fromCurrency;
     private String toCurrency;
     private double amount;

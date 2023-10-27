@@ -3,6 +3,7 @@ package com.ahmedsalihh.forexcasestudy.service.impl;
 import com.ahmedsalihh.forexcasestudy.client.DummyExchangeClient;
 import com.ahmedsalihh.forexcasestudy.converter.ConversionConverter;
 import com.ahmedsalihh.forexcasestudy.model.Conversion;
+import com.ahmedsalihh.forexcasestudy.model.ConversionApiResponse;
 import com.ahmedsalihh.forexcasestudy.model.ConversionResponse;
 import com.ahmedsalihh.forexcasestudy.model.ExchangeRateResponse;
 import com.ahmedsalihh.forexcasestudy.repository.ConversionRepository;
@@ -28,13 +29,15 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
-    public Conversion convert(String from, String to, double amount) {
-        ConversionResponse conversionResponse = client.convert(from, to, amount);
+    public ConversionResponse convert(String from, String to, double amount) {
+        ConversionApiResponse conversionApiResponse = client.convert(from, to, amount);
 
-        Conversion conversion = ConversionConverter.toConversion(conversionResponse);
+        Conversion conversion = ConversionConverter.toConversion(conversionApiResponse);
 
         conversionRepository.save(conversion);
 
-        return conversion;
+        ConversionResponse conversionResponse = ConversionConverter.toConversionResponse(conversion);
+
+        return conversionResponse;
     }
 }

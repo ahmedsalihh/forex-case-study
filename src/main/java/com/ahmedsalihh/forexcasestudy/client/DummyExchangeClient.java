@@ -1,6 +1,6 @@
 package com.ahmedsalihh.forexcasestudy.client;
 
-import com.ahmedsalihh.forexcasestudy.model.ConversionResponse;
+import com.ahmedsalihh.forexcasestudy.model.ConversionApiResponse;
 import com.ahmedsalihh.forexcasestudy.model.ExchangeRateResponse;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,14 +16,14 @@ public class DummyExchangeClient {
         return response;
     }
 
-    public ConversionResponse convert(String from, String to, double amount) {
-        ConversionResponse conversionResponse = new ConversionResponse();
-        conversionResponse.setAmount(amount);
-        conversionResponse.setFrom(from);
-        conversionResponse.setTo(to);
-        conversionResponse.setTotalAmount(100);
-        conversionResponse.setTransactionDate(new Date());
+    public ConversionApiResponse convert(String from, String to, double amount) {
+        ConversionApiResponse conversionApiResponse = new ConversionApiResponse();
+        conversionApiResponse.setAmount(amount);
+        conversionApiResponse.setFrom(from);
+        conversionApiResponse.setTo(to);
+        conversionApiResponse.setTotalAmount(100);
+        conversionApiResponse.setTransactionDate(new Date());
 
-        return conversionResponse;
+        return conversionApiResponse;
     }
 }
