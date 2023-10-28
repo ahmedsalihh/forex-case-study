@@ -5,7 +5,6 @@ import com.ahmedsalihh.forexcasestudy.model.ExchangeRateResponse;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Configuration
 public class DummyExchangeClient {

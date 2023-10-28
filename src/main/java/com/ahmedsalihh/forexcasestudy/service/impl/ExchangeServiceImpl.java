@@ -56,7 +56,8 @@ public class ExchangeServiceImpl implements ExchangeService {
         Page<Conversion> pagedResult;
         LocalDate date;
 
-        if (!transactionDate.isEmpty()) {
+
+        if (transactionDate != null && !transactionDate.isEmpty()) {
             date = DateUtils.formatDate(transactionDate);
         } else {
             date = DateUtils.formatDate(DEFAULT_DATE);
